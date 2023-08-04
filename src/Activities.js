@@ -21,7 +21,7 @@ function Activities() {
       active: false,
     },
   ];
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [tabsList, setModifiedTabs] = useState(tabs);
   const [archiveList, setArchiveList] = useState([]);
   const [selectedTab, setSelectedTab] = useState("All calls");
@@ -60,20 +60,13 @@ function Activities() {
       `Are you sure you want to archive ${data.length} calls?`
     );
     if (value) {
-      return data.map((callDetail) => {
-        fetch(
-          `https://cerulean-marlin-wig.cyclic.app/activities/${callDetail.id}`,
-          {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              is_archived: true,
-            }),
-          }
-        )
-          .then((res) => res.json)
-          .then(() => (window.location.href = "/"));
+      const updatedData = data.map((value) => {
+        value.is_archived = true;
+        return value;
       });
+      // as there was no api for putting all the archive calls, so I updated the state
+      setData([]);
+      setArchiveList(updatedData);
     }
   }
 
@@ -109,7 +102,7 @@ function Activities() {
       <div className="call-list">
         {selectedTab === "All calls" ? (
           <React.Fragment>
-            <button className="archive-calls" onClick={archiveAllCalls}>
+            <button className="archive-calls" onClick={archiveAllCalls} disabled={data.length === 0}>
               <img src={archiveImg} alt="Archive Image" />
               Archive all calls
             </button>
