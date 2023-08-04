@@ -81,6 +81,7 @@
   width: 18px;
   height: 18px;
   padding-bottom: 5px;
+  filter: opacity(0.5);
 }
 .keypad {
   display: flex;
@@ -98,6 +99,7 @@
 .keypad img {
   width: 30px;
   height: 30px;
+  filter: invert(1);
 }
 .archive-calls {
   display: flex;
