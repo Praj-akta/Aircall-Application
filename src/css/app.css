@@ -13,13 +13,12 @@
   width: 376px;
   height: 666px;
   z-index: 100;
-
+  position: relative;
   background: white;
   border-radius: 3px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .9);
 }
 
 #app .container-view {
-  padding: 20px;
+  background: #f9f8f8;
 }
-

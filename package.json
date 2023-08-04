@@ -12,8 +12,11 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "file-loader": "^6.2.0",
+    "react": "^18.3.0-canary-493f72b0a-20230727",
+    "react-dom": "^18.3.0-canary-493f72b0a-20230727",
+    "react-router-dom": "^6.14.2",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
     "babel-core": "6.26.*",
@@ -23,7 +26,7 @@
     "css-loader": "2.1.*",
     "html-loader": "0.5.*",
     "html-webpack-plugin": "3.2.*",
-    "style-loader": "0.23.*",
+    "style-loader": "^0.23.1",
     "webpack": "4.29.*",
     "webpack-cli": "3.2.*",
     "webpack-dev-server": "3.1.*"
